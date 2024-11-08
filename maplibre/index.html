@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storymap</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="map" class="panel"></div>
+
+        <!-- Contenedor inicial para la imagen -->
+        <div class="scrollable-container" id="scrollable-images">
+            <div class="image-panel panel">
+                <!-- Imagen principal de portada -->
+                <img src="img/titulo01.svg" width="100%">
+            </div>
+            <!-- Paneles de imágenes se añadirán aquí dinámicamente -->
+        </div>
+
+        <!-- Contenedor inicial para el título y descripción principal -->
+        <div class="scrollable-container" id="scrollable-texts">
+            <div class="text-panel panel">
+                <p style="font-size: 1.2rem;">From the early 80s to the late 90s, we Peruvians experienced a pivotal
+                    internal armed conflict between the government and the Communist Party of Peru -Shining Path. This
+                    StoryMap encompasses the geolocations of the students’ whereabouts from the instance they were taken
+                    by the military and finally disappeared in the emblematic mass grave known as La Hoyada in Huamanga,
+                    Ayacucho (Peru). This work was drawn from the solid research developed by the Directorate General of
+                    Search for Disappeared Persons (DGBPD) promoting routes for more narratives of the unofficial
+                    collective memory.</p>
+            </div>
+
+            <!-- Paneles de texto se añadirán aquí dinámicamente -->
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+
+</html>

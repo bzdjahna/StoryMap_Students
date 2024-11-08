@@ -1,0 +1,19 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [-74.006, 40.7128],
+            [-73.935242, 40.73061]
+          ]
+        },
+        "properties": {
+          "description": "Línea que conecta marker1 y marker2"
+        }
+      }
+    ]
+  }
+  

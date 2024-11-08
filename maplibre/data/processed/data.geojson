@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.006, 40.7128]
+      },
+      "properties": {
+        "id": "marker1",
+        "image": "img/sarhua.jpg",
+        "text": "Descripción del primer marcador"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.935242, 40.73061]
+      },
+      "properties": {
+        "id": "marker2",
+        "image": "img/sarhua.jpg",
+        "text": "Descripción del segundo marcador"
+      }
+    }
+  ]
+}

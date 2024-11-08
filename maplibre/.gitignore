@@ -1,0 +1,5 @@
+# Archivos de caché y datos temporales
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/

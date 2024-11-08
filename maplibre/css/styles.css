@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+#map {
+    width: 70%; /* Ajusta el tamaño del mapa */
+    height: 100%;
+}
+
+.scrollable-container {
+    width: 30%; /* Ajusta el tamaño de las secciones scrollable */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow-y: auto; /* Permite el scroll vertical */
+}
+
+.panel {
+    display: flex;
+    flex-direction: column; /* Cambia a disposición en columna para imágenes y texto */
+    align-items: center;
+    text-align: center;
+    min-height: 100vh; /* Cada panel ocupará al menos la altura de la ventana */
+    justify-content: space-around;
+    background-color:  rgb(217 217 217 / 99%);
+
+}
+
+
+.image-panel img {
+    max-width: 100%;
+    height: auto;   
+    background-color:  rgb(217 217 217 / 99%); /* Color de fondo para visualizar la imagen */
+}
+
+.text-panel {
+    padding: 20px;
+    background-color: rgb(217 217 217 / 99%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Asegura que el panel ocupe todo el ancho disponible */
+    word-wrap: break-word; /* Rompe palabras largas que sobrepasen el ancho */
+    overflow-wrap: break-word; /* Soporte adicional para romper palabras */
+    overflow: hidden; /* Evita desbordamientos del contenedor */
+    text-align: justify; /* Justificar el texto */
+}
+
+.text-panel h1 {
+    font-size: 2.0em;
+    font-family: 'Arvo', serif;
+    margin-bottom: 10px;
+    width: 100%; /* Asegura que el título ocupe todo el ancho */
+    word-wrap: break-word;
+    text-align: center; /* El título lo dejamos centrado */
+    color:#000000
+}
+
+h3 {
+    font-family: 'Arvo', serif;
+}
+
+
+/*Estilos para el Popup de MapLibre*/
+.maplibregl-popup-content {
+    font-family: 'Arvo', serif;
+}
+
+.text-panel p {
+    font-size: 2.0em;
+    color: #000000;
+    font-family: 'Arvo', serif;
+    width: 100%; /* Asegura que el párrafo ocupe todo el ancho */
+    word-wrap: break-word;
+    text-align: center; /* Justificar los párrafos */
+}
+
+
+
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia a disposición en filas para pantallas pequeñas */
+    }
+
+    #map {
+        width: 100%; /* El mapa ocupa todo el ancho */
+        height: 50vh; /* Ajusta el tamaño del mapa para pantallas pequeñas */
+    }
+
+    .scrollable-container {
+        width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+
+    .panel {
+        min-height: 50vh; /* Cada panel ocupará la mitad de la altura en pantallas pequeñas */
+    }
+
+    .text-panel h1 {
+        font-size: 2em; /* Tamaño más pequeño para el título */
+    }
+
+    .text-panel p {
+        font-size: 1em; /* Tamaño más pequeño para el párrafo */
+    }
+}
+
+#scrollable-images {
+    overflow-y: scroll;
+    height: 100vh;
+    width: 33%;
+}
+
+/* Ocultar la barra de desplazamiento en navegadores Webkit */
+#scrollable-images::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento */
+}
+
+/* Para Firefox */
+#scrollable-images {
+    scrollbar-width: none; /* Oculta la barra de desplazamiento */
+}
+
+/* Estilos del botón "Volver al Inicio" */
+#reset-button {
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1.2em; /* Tamaño de la fuente */
+    font-family: 'Arial', sans-serif; /* Fuente simple */
+    cursor: pointer; /* Cambiar cursor al puntero */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición */
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Efecto hover (cuando el ratón está sobre el botón) */
+#reset-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    transform: translateY(-5px); /* Elevar el botón ligeramente */
+}
+
+/* Efecto activo (cuando se hace clic en el botón) */
+#reset-button:active {
+    background-color: #00408d; /* Color más oscuro al hacer clic */
+    transform: translateY(0px); /* Volver a la posición original */
+}
+.text-panel:first-of-type h1 {
+    background-color: white; /* Fondo blanco para el recuadro */
+    color: black; /* Texto negro */
+    padding: 10px 20px; /* Espaciado interno para crear el recuadro */
+    border-radius: 8px; /* Bordes redondeados */
+    display: inline-block; /* Para que el fondo blanco solo envuelva el texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade sombra para dar efecto de elevación */
+    text-align: center; /* Centramos el texto dentro del recuadro */
+}
+
+/* Contenedor principal de imágenes */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Contenedor de cada colaborador */
+.collaborator {
+    text-align: center;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+/* Imagen circular */
+.circle-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+/* Nombre del colaborador */
+.collaborator-name {
+    font-size: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center; /* Asegura que el nombre esté centrado */
+    width: 100%; /* Para que el nombre esté centrado debajo de la imagen */
+}
+
+/* Íconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-icons a:hover {
+    color: #0073b1;
+}
+
+/* Estilo del botón "Volver al Inicio" */
+.reset-button {
+    font-family: Arvo;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a una nueva línea si es necesario */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Espaciado entre las imágenes */
+    margin-top: 20px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .image-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+.custom-hr {
+    border: 0 !important;            /* Remueve cualquier borde */
+    height: 2px !important;           /* Ajusta el grosor de la línea */
+    background-color: #333 !important; /* Asegura que el color sea visible */
+    margin: 10px 0 !important;         /* Añade un margen para separarlo de los textos */
+    width: 100% !important;            /* Asegura que el hr ocupe el ancho completo */
+    display: block !important;         /* Asegura que se muestre como bloque */
+}
+
+.text-panel:first-child {
+    background-color:  rgb(217 217 217 / 99%)
+}
+
+.image-panel:first-child {
+    background-color:  rgb(217 217 217 / 99%)
+}
+
+
+.maplibregl-popup-content {
+  border-radius: 120px;
+}
+
+
+@media (max-width: 768px) {
+    .text-panel p {
+        font-size: 1.2em;
+    }
+    #scrollable-images {
+        overflow-y: scroll;
+        height: 100vh;
+        width: 100%;
+    }
+    
+}
